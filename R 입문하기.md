@@ -88,5 +88,28 @@ NA와 NaN, Inf가 나오는데 뭔진 모르겠고 얘네가 이상한 것 같�
 
 ### 함수
 
-+ 선언: `함수이름 <- function(어쩌구)`
-+ 어렵다. 한번 더 하면서 찬찬히 읽으면서 정리해보자
++ 선언: `함수이름 <- function(어쩌구){}`. {} 안의 내용 중 가장 마지막이 return된다
++ default arguments: argument가 두 개 이상인 함수에서 한 값을 미리 정해놓는 것
+
+예시) `remainder <- function(num, divisor = 2){num %% divisor}`은 num을 divisor로 나눈 나머지를 출력한다
+
+`remainder(5)`는 5를 2로 나눈 나머지이고, `remainder(5,3)`은 5를 3으로 나눈 나머지, `remainder(divisor = 3, num =5)`도 같음
+
++ `function(func, dat){func(dat)}`: 함수 안에 함수 넣기
+  + anonymous function: 위의 함수의 func 부분에 `function(x){x+1}`을 바로 넣을 수 있다
++ `...` (ellipsis): 함수에 들어온 임의의 무언가를 말하는 것. 숫자, 문자, 문장 몇 개, 함수 여러개 다 될 수 있음
+  + 이 `...`를 unpack(?)할 수 있다! 대체 무슨 소리인지 보자!
+
+```R
+making_set <- function(...){
+    args <- list(...)
+    who <- args[["who"]]
+    when <- args[["when"]]
+    where <- args[["where"]]
+    paste("name:", who, "time:", when, "place:", where)
+}
+```
+
+이 함수에 `making_set(어쩌구저쩌구, who="helen", where="market", when="yesterday")`를 대입하면, 저 어쩌구저쩌구는 무시되고 "who", "where", "when"만 골라서 처리돼서 `name: helen time: yesterday place: market`이 나온다
+
++ binary operator: `"%p% <- function(x, y){paste(x,y)}"`하면 `'Hello' %p% 'new' %p% 'world'`라고 쓸 수 있다
