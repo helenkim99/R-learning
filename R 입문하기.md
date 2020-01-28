@@ -18,9 +18,9 @@
 
 ### sequence
 
-+ `1:20` 치면 1~20까지의 수 / `pi:10` 치면 3.14~부터 1씩 증가해서 9.14~까지 / `15:1` 치면 15부터 1씩 감소
++ `1:20` 치면 1-20까지의 수 / `pi:10` 치면 3.14부터 1씩 증가해서 9.14까지 / `15:1` 치면 15부터 1씩 감소
 + `seq(시작, 끝, by=간격)` 혹은 `seq(시작, 끝, length=길이)` 혹은 `seq(시작, by, length)`
-  + `length()`으로 길이 출력, `seq_along()`으로 해당 sequence와 길이 같은 1~30 수열 출력
+  + `length()`으로 길이 출력, `seq_along()`으로 해당 sequence와 길이 같은 1-30 수열 출력
 + `rep(수 or vector, times=횟수)` 혹은 `rep(vector, each=횟수)`
 
 #### vector
@@ -29,7 +29,7 @@
 + `paste(char vector name, collapse = " ")`으로 단어 몇 개를 띄어쓰기로 이어서 문장 만들 수 있음
 + `paste(1:3, c("X", "Y", "Z"), sep = "")`하면 1,2,3이 각각 X,Y,Z에 합쳐져서  `"1X" "2Y" "3Z"`
   + 둘이 길이가 다르면 당연히 recycling됨
-  + `LETTERS`는 R에 내장된 변수로, A~Z를 모두 포함한 벡터를 말함
+  + `LETTERS`는 R에 내장된 변수로, A-Z를 모두 포함한 벡터를 말함
 + subset: 기본적으로 x[인덱스의 조건] 으로 subset을 만들 수 있음. 1부터 시작함
   + `x[1:10]`: `x[1]`부터 `x[10]`까지 포함한 것 / `x[c(3, 5, 7)]`: `x[3], x[5], x[7]` 포함한 것
   + `x[is.na(x)]`: `NA`를 제외한 값 / `x[x>0]`: 양수값
@@ -110,6 +110,8 @@ making_set <- function(...){
 }
 ```
 
-이 함수에 `making_set(어쩌구저쩌구, who="helen", where="market", when="yesterday")`를 대입하면, 저 어쩌구저쩌구는 무시되고 "who", "where", "when"만 골라서 처리돼서 `name: helen time: yesterday place: market`이 나온다
+이 함수에 `making_set(어쩌구저쩌구, who="helen", where="market", when="yesterday")`를 대입하면,
+
+저 어쩌구저쩌구는 무시되고 "who", "where", "when"만 골라서 처리돼서 `name: helen time: yesterday place: market`이 나온다
 
 + binary operator: `"%p% <- function(x, y){paste(x,y)}"`하면 `'Hello' %p% 'new' %p% 'world'`라고 쓸 수 있다
