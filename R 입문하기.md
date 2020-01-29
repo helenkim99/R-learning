@@ -72,6 +72,8 @@
 ```
 처럼 엑셀같이 매우 깔끔하게 된다!
 
++ `flags[, 4:6]`: flags라는 matrix 혹은 data.frame의 4~6번째 column 전부를 추출하겠다
+
 ### 논리연산자
 
 + `TRUE & c(TRUE, FALSE)`는 `TRUE FALSE`이고, `TRUE && c(TRUE, FALSE)`는 `TRUE`이다. 첫 원소만 계산. `||`도 마찬가지
@@ -115,3 +117,16 @@ making_set <- function(...){
 저 어쩌구저쩌구는 무시되고 "who", "where", "when"만 골라서 처리돼서 `name: helen time: yesterday place: market`이 나온다
 
 + binary operator: `"%p% <- function(x, y){paste(x,y)}"`하면 `'Hello' %p% 'new' %p% 'world'`라고 쓸 수 있다
+
+#### loop function
+
+data를 split하고, split한 것 각각을 함수에 apply하고, 이들을 다시 combine 한다
+
++ `lapply(x, 함수)`: x의 column별로 함수를 적용하고 이들을 합쳐서 list로 만드는 함수
+  + `as.character(list)`: 안의 내용들을 character로 만들 수 있는 것 같다
++ `sapply(x, 함수)`: 위의 두 과정을 합친 것과 유사한 역할을 한다. 단 vector 대신 matrix를 반환한다
+
+이외 예시에 나온 다양한 함수 목록
+
++ `range()`: 해당 vector의 최대값고 최소값을 반환한다
++ `unique()`: 겹치는 값을 없애고 서로 다른 값만 반환한다
