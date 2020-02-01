@@ -123,10 +123,25 @@ making_set <- function(...){
 data를 split하고, split한 것 각각을 함수에 apply하고, 이들을 다시 combine 한다
 
 + `lapply(x, 함수)`: x의 column별로 함수를 적용하고 이들을 합쳐서 list로 만드는 함수
+  
   + `as.character(list)`: 안의 내용들을 character로 만들 수 있는 것 같다
+  
 + `sapply(x, 함수)`: 위의 두 과정을 합친 것과 유사한 역할을 한다. 단 vector 대신 matrix를 반환한다
+
++ `vapply(x, 함수, type)`: `sapply`와 유사하나, type을 지정할 수 있고, 맞지 않으면 에러를 호출한다
+
+  + type에는 `numeric(1)`(길이 1인 numeric vector), `character`등이 있다. 더 배워야 하는 것 같다
+
++ `table(x$항목)`: 각 항목에 해당하는 개수를 세어달라는 뜻
+
+  예시) `table(flags$landmass)`하면 각 항목에 해당하는 개수를 세어준다
+
++ `tapply(x$항목1, x$항목2, 함수)`: 항목2 별로 항목1에 대한 함수를 적용한다
+
+  예시) `tapply(flags$animate, flags$landmass, mean)`를 하면 landmass별로 animate에 대한 평균이 나온다
 
 이외 예시에 나온 다양한 함수 목록
 
 + `range()`: 해당 vector의 최대값고 최소값을 반환한다
 + `unique()`: 겹치는 값을 없애고 서로 다른 값만 반환한다
++ `summary()`: 최소최대값, 4분위수, 평균을 반환한다
